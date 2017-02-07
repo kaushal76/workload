@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Staff4items list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Allocatedhrs</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for staff4Item in staff4Items %}
+            <tr>
+                <td><a href="{{ path('allocations_show', { 'id': staff4Item.id }) }}">{{ staff4Item.id }}</a></td>
+                <td>{{ staff4Item.allocatedHrs }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('allocations_show', { 'id': staff4Item.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('allocations_edit', { 'id': staff4Item.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('allocations_new') }}">Create a new staff4Item</a>
+        </li>
+    </ul>
+{% endblock %}

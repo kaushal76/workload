@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Staff</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ staff.id }}</td>
+            </tr>
+            <tr>
+                <th>Staffname</th>
+                <td>{{ staff.staffName }}</td>
+            </tr>
+            <tr>
+                <th>Empnumber</th>
+                <td>{{ staff.empNumber }}</td>
+            </tr>
+            <tr>
+                <th>Fte</th>
+                <td>{{ staff.fTE }}</td>
+            </tr>
+            <tr>
+                <th>Namecode</th>
+                <td>{{ staff.nameCode }}</td>
+            </tr>
+            <tr>
+                <th>Position</th>
+                <td>{{ staff.position }}</td>
+            </tr>
+            <tr>
+                <th>Departmentcategory</th>
+                <td>{{ staff.departmentCategory }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('staff_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('staff_edit', { 'id': staff.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
